@@ -15,7 +15,7 @@ _putchar('+');
 i = 1;
 }
 else if (n < 0)
-}
+{
 _putchar('-');
 i = -1;
 }
