@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * _memset- the memset function
- * @s: the start point of string
- * @b: the value that will replace
- * @n: the number of bytes that will change
- * Return: the changed pointer
+ * _memset - function
+ * @s: pointed to be changed
+ * @b: value that will replace
+ * @n: number of bytes to be changed
+ * Return: 0 if successful
  */
 
 char *_memset(char *s, char b, unsigned int n)

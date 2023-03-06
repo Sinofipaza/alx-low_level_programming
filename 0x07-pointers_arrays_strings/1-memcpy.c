@@ -1,11 +1,11 @@
-#include "main.h"
+#inclede "main.h"
 
 /**
- * _memcpy - the memset function
- * @dest: starting point of string that change
- * @src: value to replace
+ * _memcpy - memset function
+ * @dest: start point of string to change
+ * @src: value that will replace
  * @n: number of bytes to change
- * Return: the pointer changed
+ * Return: changed pointer
  */
 
 char *_memcpy(char *dest, char *src, unsigned int n)
