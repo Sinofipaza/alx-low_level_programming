@@ -1,5 +1,5 @@
-#include "main.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * main - print min number of coins to return change using 25, 10, 5, 2, 1
