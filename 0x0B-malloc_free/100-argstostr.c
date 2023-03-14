@@ -3,6 +3,22 @@
 #include <stdlib.h>
 
 /**
+ * _strlen - get length
+ * @c: string
+ * Return: returns length
+ */
+
+int _strlen(char *c)
+{
+	int len;
+
+	for (len = 0; c[len] != '\0'; len++)
+		;
+
+	return (len);
+}
+
+/**
  * argstostr - concatenates all the arguments of your program
  * @ac: number of args
  * @av: args
