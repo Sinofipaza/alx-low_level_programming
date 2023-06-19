@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "dog.h"
 
 /**
@@ -6,6 +7,7 @@
  * @name: dog name
  * @age: dog age
  * @owner: dog owner
+ * Return: Nothing
  */
 
 void init_dog(struct dog *d, char *name, float age, char *owner)
