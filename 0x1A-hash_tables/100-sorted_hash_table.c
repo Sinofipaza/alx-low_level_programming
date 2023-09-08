@@ -3,10 +3,11 @@
 #include <stdio.h>
 
 /**
-  * shash_table_create - Creates a hash table
-  * @size: the size of the array
-  * Return: a pointer to the newly created hash table
+  * shash_table_create - creates a hash table
+  * @size: size of array
+  * Return: pointer to newly created hash table
   */
+
 shash_table_t *shash_table_create(unsigned long int size)
 {
 	shash_table_t *new_hash_table;
@@ -32,13 +33,15 @@ shash_table_t *shash_table_create(unsigned long int size)
 
 	return (new_hash_table);
 }
+
 /**
   * update_key - update value of key if key exists
   * @h: head of linked list
   * @key: key of node
   * @value: value of node
-  * Return: 1 if succesful, 0 if not match, -1 if malloc failed
+  * Return: 1 if succesful
   */
+
 int update_key(shash_node_t **h, const char *key, const char *value)
 {
 	shash_node_t *copy = *h;
@@ -58,12 +61,13 @@ int update_key(shash_node_t **h, const char *key, const char *value)
 }
 
 /**
-  * add_node - adds a node to the beginning of a linked list hash_node_t
-  * @h: head of the linked list
+  * add_node - adds a node to beginning of a linked list hash_node_t
+  * @h: head of linked list
   * @key: key of node
   * @value: value of node
   * Return: new head
   */
+
 shash_node_t *add_node(shash_node_t **h, const char *key, const char *value)
 {
 	shash_node_t *new_node;
@@ -95,12 +99,13 @@ shash_node_t *add_node(shash_node_t **h, const char *key, const char *value)
 }
 
 /**
-  * shash_table_set - adds an element to the hash table
-  * @ht: is the hash table you want to add or update the key/value to
-  * @key: is the key and can not be an empty string
-  * @value: is the value associated with the key (must be duplicated)
-  * Return: 1 if it succeeded, 0 otherwise
+  * shash_table_set - adds an element to hash table
+  * @ht: hash table you want to add or update key
+  * @key: key and can not be an empty string
+  * @value: value associated with key
+  * Return: 1 if it successful
   */
+
 int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
@@ -113,7 +118,6 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	index = key_index((const unsigned char *)key, ht->size);
 
 	update = update_key(&(ht->array[index]), key, value);
-	/* update == 0 when no key was found */
 	if (update == 0)
 	{
 		new = add_node(&(ht->array[index]), key, value);
@@ -123,17 +127,18 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		}
 		ht->array[index] = new;
 	}
-	/* update == -1 when malloc failed */
 	else if (update == -1)
 		return (0);
 	return (1);
 }
+
 /**
-  * shash_table_get - Retrieves a value associated with a key
-  * @ht: is the hash table
-  * @key: is the key to search for
-  * Return: value associated with the element or NULL if not found
+  * shash_table_get - retrieves value associated with key
+  * @ht: hash table
+  * @key: key to search for
+  * Return: value associated with element
   */
+
 char *shash_table_get(const shash_table_t *ht, const char *key)
 {
 	shash_node_t *node;
@@ -146,10 +151,12 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 			return (node->value);
 	return (NULL);
 }
+
 /**
  * shash_table_print - prints hash table
- * @ht: is the hash table
+ * @ht: hash table
  */
+
 void shash_table_print(const shash_table_t *ht)
 {
 	unsigned long int i, count = 0;
@@ -163,7 +170,6 @@ void shash_table_print(const shash_table_t *ht)
 			copy = ht->array[i];
 			for (; copy; copy = copy->next)
 			{
-				/* if not the first element print comma and space */
 				if (count)
 					printf(", ");
 				printf("\'%s\': \'%s\'", copy->key, copy->value);
@@ -173,10 +179,12 @@ void shash_table_print(const shash_table_t *ht)
 		printf("}\n");
 	}
 }
+
 /**
  * shash_table_print_rev - prints table in reverse
- * @ht: is the hash table
+ * @ht: hash table
  */
+
 void shash_table_print_rev(const shash_table_t *ht)
 {
 	unsigned long int i, count = 0;
@@ -200,10 +208,12 @@ void shash_table_print_rev(const shash_table_t *ht)
 		printf("}\n");
 	}
 }
+
 /**
-  * shash_table_delete - deletes all elements in a hashtable
+  * shash_table_delete - deletes all elements in hashtable
   * @ht: hash table
   */
+
 void shash_table_delete(shash_table_t *ht)
 {
 	unsigned long int i;
